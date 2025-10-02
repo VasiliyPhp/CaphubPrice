@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application' version '8.1.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.10' apply false
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+android {
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.caphub.price"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {}
+    }
+    packagingOptions {
+        resources.excludes += [
+            "META-INF/DEPENDENCIES",
+            "META-INF/LICENSE",
+            "META-INF/NOTICE"
+        ]
+    }
+}
+repositories { mavenCentral() }
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
+    implementation "androidx.activity:activity-compose:1.8.0"
+    implementation "androidx.compose.ui:ui:1.5.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "org.apache.poi:poi:5.2.3"
+    implementation "org.apache.poi:poi-ooxml:5.2.3"
+    implementation "org.apache.xmlbeans:xmlbeans:5.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+}
